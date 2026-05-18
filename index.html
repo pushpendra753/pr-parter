@@ -10,7 +10,9 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;width:100%;}
   body{background:#050508;font-family:'Nunito','Segoe UI',sans-serif;min-height:100vh;overflow-x:hidden;}
+  #root{height:100%;}
   input[type=range]{-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:#25253F;outline:none;cursor:pointer;}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#FF4500,#FF8C00);cursor:pointer;box-shadow:0 2px 8px rgba(255,69,0,0.4);}
   input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#FF4500,#FF8C00);cursor:pointer;border:none;}
@@ -1070,7 +1072,7 @@ function App(){
     const job = jobs.find(j=>j.id===notif.jobId) || {};
     return {...notif,job};
   })();
-  useEffect(()=>{const t=setTimeout(()=>setLoading(false),900);return()=>clearTimeout(t);},[]);
+  useEffect(()=>{const t=setTimeout(()=>setLoading(false),5000);return()=>clearTimeout(t);},[]);;
 
   const createJob = (data)=>{
     const id = 'J'+String(Date.now()).slice(-6);
